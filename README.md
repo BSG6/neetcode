@@ -1,18 +1,28 @@
- 
- // make string lower case
- // remove everything that's not a letter or number
+Two Integer Sum II
+Solved 
+Given an array of integers numbers that is sorted in non-decreasing order.
 
- // //  set up two pointers
- // left = 0
- // right = length of string - 1
+Return the indices (1-indexed) of two numbers, [index1, index2], such that they add up to a given target number target and index1 < index2. Note that index1 and index2 cannot be equal, therefore you may not use the same element twice.
 
- // // move pointers toward the middle
- // while left < right:
- //     if chars at left and right are not equal:
- //         return false
- //     move left forward
- //     move right backward
+There will always be exactly one valid solution.
 
- // // if we finished the loop, it's a palindrome
- // return true
+Your solution must use 
+O
+(
+1
+)
+O(1) additional space.
 
+Example 1:
+
+Input: numbers = [1,2,3,4], target = 3
+
+Output: [1,2]
+Explanation:
+The sum of 1 and 2 is 3. Since we are assuming a 1-indexed array, index1 = 1, index2 = 2. We return [1, 2].
+
+Constraints:
+
+2 <= numbers.length <= 1000
+-1000 <= numbers[i] <= 1000
+-1000 <= target <= 1000
