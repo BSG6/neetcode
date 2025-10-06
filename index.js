@@ -1,23 +1,33 @@
 class Solution {
     /**
-     * @param {number[]} heights
+     * @param {number[]} height
      * @return {number}
      */
-    maxArea(heights) {
-        
-  let best = 0;
+    trap(height) {
+    
+  let left = 0, right = height.length - 1;
+  let leftMax = 0, rightMax = 0, water = 0;
 
-  for (let i = 0; i < heights.length; i++) {
-    for (let j = i + 1; j < heights.length; j++) {
-      const width = j - i;
-      const h = Math.min(heights[i], heights[j]);
-      const area = width * h;
-      if (area > best) best = area;
+  while (left < right) {
+    if (height[left] <= height[right]) {
+      // left side is the limiting side
+      if (height[left] >= leftMax) {
+        leftMax = height[left];
+      } else {
+        water += leftMax - height[left];
+      }
+      left++;
+    } else {
+      // right side is the limiting side
+      if (height[right] >= rightMax) {
+        rightMax = height[right];
+      } else {
+        water += rightMax - height[right];
+      }
+      right--;
     }
   }
-
-  return best;
+  return water;
 }
 
     }
-
