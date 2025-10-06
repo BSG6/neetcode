@@ -1,27 +1,22 @@
-Best Time to Buy and Sell Stock
+Longest Substring Without Repeating Characters
 Solved 
-You are given an integer array prices where prices[i] is the price of NeetCoin on the ith day.
+Given a string s, find the length of the longest substring without duplicate characters.
 
-You may choose a single day to buy one NeetCoin and choose a different day in the future to sell it.
-
-Return the maximum profit you can achieve. You may choose to not make any transactions, in which case the profit would be 0.
+A substring is a contiguous sequence of characters within a string.
 
 Example 1:
 
-Input: prices = [10,1,5,6,7,1]
+Input: s = "zxyzxyz"
 
-Output: 6
-Explanation: Buy prices[1] and sell prices[4], profit = 7 - 1 = 6.
+Output: 3
+Explanation: The string "xyz" is the longest without duplicate characters.
 
 Example 2:
 
-Input: prices = [10,8,7,5,2]
+Input: s = "xxxx"
 
-Output: 0
-Explanation: No profitable transactions can be made, thus the max profit is 0.
-
+Output: 1
 Constraints:
 
-1 <= prices.length <= 100
-0 <= prices[i] <= 100
-
+0 <= s.length <= 1000
+s may consist of printable ASCII characters.

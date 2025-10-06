@@ -1,20 +1,23 @@
 class Solution {
     /**
-     * @param {number[]} prices
+     * @param {string} s
      * @return {number}
      */
-    maxProfit(prices) {
+    lengthOfLongestSubstring(s) {
         
-  let minPrice = Infinity;
+  let lastIndex = new Map(); // char -> last seen index
+  let left = 0;
   let best = 0;
 
-  for (const p of prices) {
-    // profit if we sell today
-    best = Math.max(best, p - minPrice);
-    // keep track of the cheapest day so far
-    minPrice = Math.min(minPrice, p);
+  for (let right = 0; right < s.length; right++) {
+    const ch = s[right];
+    if (lastIndex.has(ch) && lastIndex.get(ch) >= left) {
+      left = lastIndex.get(ch) + 1; // move left past the repeat
+    }
+    lastIndex.set(ch, right);
+    best = Math.max(best, right - left + 1);
   }
   return best;
 }
 
-    }
+}
