@@ -1,22 +1,23 @@
-Longest Repeating Character Replacement
+Permutation in String
 Solved 
-You are given a string s consisting of only uppercase english characters and an integer k. You can choose up to k characters of the string and replace them with any other uppercase English character.
+You are given two strings s1 and s2.
 
-After performing at most k replacements, return the length of the longest substring which contains only one distinct character.
+Return true if s2 contains a permutation of s1, or false otherwise. That means if a permutation of s1 exists as a substring of s2, then return true.
+
+Both strings only contain lowercase letters.
 
 Example 1:
 
-Input: s = "XYYX", k = 2
+Input: s1 = "abc", s2 = "lecabee"
 
-Output: 4
-Explanation: Either replace the 'X's with 'Y's, or replace the 'Y's with 'X's.
+Output: true
+Explanation: The substring "cab" is a permutation of "abc" and is present in "lecabee".
 
 Example 2:
 
-Input: s = "AAABABB", k = 1
+Input: s1 = "abc", s2 = "lecaabee"
 
-Output: 5
+Output: false
 Constraints:
 
-1 <= s.length <= 1000
-0 <= k <= s.length
+1 <= s1.length, s2.length <= 1000
