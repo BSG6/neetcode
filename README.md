@@ -1,31 +1,25 @@
-#Binary Search
+#Koko Eating Bananas
 Solved 
-You are given an array of distinct integers nums, sorted in ascending order, and an integer target.
+You are given an integer array piles where piles[i] is the number of bananas in the ith pile. You are also given an integer h, which represents the number of hours you have to eat all the bananas.
 
-Implement a function to search for target within nums. If it exists, then return its index, otherwise, return -1.
+You may decide your bananas-per-hour eating rate of k. Each hour, you may choose a pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, you may finish eating the pile but you can not eat from another pile in the same hour.
 
-Your solution must run in 
-O
-(
-l
-o
-g
-n
-)
-O(logn) time.
+Return the minimum integer k such that you can eat all the bananas within h hours.
 
 Example 1:
 
-Input: nums = [-1,0,2,4,6,8], target = 4
+Input: piles = [1,4,3,2], h = 9
 
-Output: 3
+Output: 2
+Explanation: With an eating rate of 2, you can eat the bananas in 6 hours. With an eating rate of 1, you would need 10 hours to eat all the bananas (which exceeds h=9), thus the minimum eating rate is 2.
+
 Example 2:
 
-Input: nums = [-1,0,2,4,6,8], target = 3
+Input: piles = [25,10,23,4], h = 4
 
-Output: -1
+Output: 25
 Constraints:
 
-1 <= nums.length <= 10000.
--10000 < nums[i], target < 10000
-All the integers in nums are unique.
+1 <= piles.length <= 1,000
+piles.length <= h <= 1,000,000
+1 <= piles[i] <= 1,000,000,000
