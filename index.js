@@ -1,30 +1,27 @@
 class Solution {
     /**
-     * @param {number[]} piles
-     * @param {number} h
+     * @param {number[]} nums
      * @return {number}
      */
-    
-        minEatingSpeed(piles, h) {
-        let l = 1;
-        let r = Math.max(...piles);
-        let res = r;
+    findMin(nums) {
+        let l = 0;
+        let r = nums.length - 1;
+        let res = nums[0];
 
         while (l <= r) {
-            const k = Math.floor((l + r) / 2);
-
-            let totalTime = 0;
-            for (const p of piles) {
-                totalTime += Math.ceil(p / k);
+            if (nums[l] <= nums[r]) {
+                res = Math.min(res, nums[l]);
+                break;
             }
-            if (totalTime <= h) {
-                res = k;
-                r = k - 1;
+
+            let m = l + Math.floor((r - l) / 2);
+            res = Math.min(res, nums[m]);
+            if (nums[m] >= nums[l]) {
+                l = m + 1;
             } else {
-                l = k + 1;
+                r = m - 1;
             }
         }
         return res;
     }
 }
-    

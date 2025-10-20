@@ -1,25 +1,31 @@
-#Koko Eating Bananas
+Find Minimum in Rotated Sorted Array
 Solved 
-You are given an integer array piles where piles[i] is the number of bananas in the ith pile. You are also given an integer h, which represents the number of hours you have to eat all the bananas.
+You are given an array of length n which was originally sorted in ascending order. It has now been rotated between 1 and n times. For example, the array nums = [1,2,3,4,5,6] might become:
 
-You may decide your bananas-per-hour eating rate of k. Each hour, you may choose a pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, you may finish eating the pile but you can not eat from another pile in the same hour.
+[3,4,5,6,1,2] if it was rotated 4 times.
+[1,2,3,4,5,6] if it was rotated 6 times.
+Notice that rotating the array 4 times moves the last four elements of the array to the beginning. Rotating the array 6 times produces the original array.
 
-Return the minimum integer k such that you can eat all the bananas within h hours.
+Assuming all elements in the rotated sorted array nums are unique, return the minimum element of this array.
+
+A solution that runs in O(n) time is trivial, can you write an algorithm that runs in O(log n) time?
 
 Example 1:
 
-Input: piles = [1,4,3,2], h = 9
+Input: nums = [3,4,5,6,1,2]
 
-Output: 2
-Explanation: With an eating rate of 2, you can eat the bananas in 6 hours. With an eating rate of 1, you would need 10 hours to eat all the bananas (which exceeds h=9), thus the minimum eating rate is 2.
-
+Output: 1
 Example 2:
 
-Input: piles = [25,10,23,4], h = 4
+Input: nums = [4,5,0,1,2,3]
 
-Output: 25
+Output: 0
+Example 3:
+
+Input: nums = [4,5,6,7]
+
+Output: 4
 Constraints:
 
-1 <= piles.length <= 1,000
-piles.length <= h <= 1,000,000
-1 <= piles[i] <= 1,000,000,000
+1 <= nums.length <= 1000
+-1000 <= nums[i] <= 1000
