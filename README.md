@@ -1,32 +1,27 @@
-Reorder Linked List
+Remove Node From End of Linked List
 Solved 
-You are given the head of a singly linked-list.
+You are given the beginning of a linked list head, and an integer n.
 
-The positions of a linked list of length = 7 for example, can intially be represented as:
-
-[0, 1, 2, 3, 4, 5, 6]
-
-Reorder the nodes of the linked list to be in the following order:
-
-[0, 6, 1, 5, 2, 4, 3]
-
-Notice that in the general case for a list of length = n the nodes are reordered to be in the following order:
-
-[0, n-1, 1, n-2, 2, n-3, ...]
-
-You may not modify the values in the list's nodes, but instead you must reorder the nodes themselves.
+Remove the nth node from the end of the list and return the beginning of the list.
 
 Example 1:
 
-Input: head = [2,4,6,8]
+Input: head = [1,2,3,4], n = 2
 
-Output: [2,8,4,6]
+Output: [1,2,4]
 Example 2:
 
-Input: head = [2,4,6,8,10]
+Input: head = [5], n = 1
 
-Output: [2,10,4,8,6]
+Output: []
+Example 3:
+
+Input: head = [1,2], n = 2
+
+Output: [2]
 Constraints:
 
-1 <= Length of the list <= 1000.
-1 <= Node.val <= 1000
+The number of nodes in the list is sz.
+1 <= sz <= 30
+0 <= Node.val <= 100
+1 <= n <= sz

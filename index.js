@@ -10,39 +10,34 @@
 
 class Solution {
     /**
+     * Remove the n-th node from the end using two pointers and a dummy head.
+     *
+ 
      *
      * @param {ListNode|null} head
-     * @return {void} Do not return anything, modify head in-place instead.
+     * @param {number} n
+     * @return {ListNode|null}
      */
-    reorderList(head) {
-        if (head === null || head.next === null) return;
+    removeNthFromEnd(head, n) {
+        const boat = new ListNode(0, head);
+        let fast = head;
+        let slow = boat;
 
-        // 1) Collect node references in an array
-        const nodes = [];
-        let cur = head;
-        while (cur !== null) {
-            nodes.push(cur);
-            cur = cur.next;
+        // 1) Advance `fast` n steps ahead
+        for (let i = 0; i < n; i++) {
+            fast = fast.next;
         }
 
-        // 2) Relink using two pointers
-        let i = 0;
-        let j = nodes.length - 1;
-
-        while (i < j) {
-            // link i -> j
-            nodes[i].next = nodes[j];
-            i++;
-
-            // if pointers meet after increment, break to avoid self-loop
-            if (i === j) break;
-
-            // link j -> i
-            nodes[j].next = nodes[i];
-            j--;
+        // 2) Move both until `fast` reaches the end
+        while (fast !== null) {
+            fast = fast.next;
+            slow = slow.next;
         }
 
-        // 3) Terminate the list
-        nodes[i].next = null;
+        // 3) `slow.next` is the node to remove
+        slow.next = slow.next.next;
+
+        // 4) Return possibly-new head
+        return boat.next;
     }
 }
