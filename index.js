@@ -10,33 +10,25 @@
 
 class Solution {
     /**
-    
+     
      *
-     * @param {ListNode|null} list1
-     * @param {ListNode|null} list2
-     * @return {ListNode|null}
+     * @param {ListNode|null} head
+     * @return {boolean}
      */
-    mergeTwoLists(list1, list2) {
-        // silly/sentinel node to simplify head handling
-        const silly = new ListNode();
-        let tail = silly;
+    hasCycle(head) {
+        const seen = new Set();  // stores node references we've visited
 
-        // While both lists still have nodes, pick the smaller head to append
-        while (list1 !== null && list2 !== null) {
-            if (list1.val <= list2.val) {
-                tail.next = list1;     // attach list1's node
-                list1 = list1.next;    // advance list1
-            } else {
-                tail.next = list2;     // attach list2's node
-                list2 = list2.next;    // advance list2
+        let cur = head;
+        while (cur !== null) {
+            if (seen.has(cur)) {
+                //  reached a node i've seen before → cycle exists
+                return true;
             }
-            tail = tail.next;          // advance the merged tail
+            seen.add(cur);
+            cur = cur.next;
         }
 
-        // One of the lists may have leftover nodes; append them directly
-        tail.next = (list1 !== null) ? list1 : list2;
-
-        // The merged list starts after the dummy
-        return silly.next;
+        // Reached the end (null) without repeats → no cycle
+        return false;
     }
 }

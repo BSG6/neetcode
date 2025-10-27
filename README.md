@@ -1,29 +1,31 @@
-Merge Two Sorted Linked Lists
+Linked List Cycle Detection
 Solved 
-You are given the heads of two sorted linked lists list1 and list2.
+Given the beginning of a linked list head, return true if there is a cycle in the linked list. Otherwise, return false.
 
-Merge the two lists into one sorted linked list and return the head of the new sorted linked list.
+There is a cycle in a linked list if at least one node in the list can be visited again by following the next pointer.
 
-The new list should be made up of nodes from list1 and list2.
+Internally, index determines the index of the beginning of the cycle, if it exists. The tail node of the list will set it's next pointer to the index-th node. If index = -1, then the tail node points to null and no cycle exists.
+
+Note: index is not given to you as a parameter.
 
 Example 1:
 
 
 
-Input: list1 = [1,2,4], list2 = [1,3,5]
+Input: head = [1,2,3,4], index = 1
 
-Output: [1,1,2,3,4,5]
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+
 Example 2:
 
-Input: list1 = [], list2 = [1,2]
 
-Output: [1,2]
-Example 3:
 
-Input: list1 = [], list2 = []
+Input: head = [1,2], index = -1
 
-Output: []
+Output: false
 Constraints:
 
-0 <= The length of the each list <= 100.
--100 <= Node.val <= 100
+1 <= Length of the list <= 1000.
+-1000 <= Node.val <= 1000
+index is -1 or a valid index in the linked list.
