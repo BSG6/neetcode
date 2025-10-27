@@ -1,31 +1,32 @@
-Linked List Cycle Detection
+Reorder Linked List
 Solved 
-Given the beginning of a linked list head, return true if there is a cycle in the linked list. Otherwise, return false.
+You are given the head of a singly linked-list.
 
-There is a cycle in a linked list if at least one node in the list can be visited again by following the next pointer.
+The positions of a linked list of length = 7 for example, can intially be represented as:
 
-Internally, index determines the index of the beginning of the cycle, if it exists. The tail node of the list will set it's next pointer to the index-th node. If index = -1, then the tail node points to null and no cycle exists.
+[0, 1, 2, 3, 4, 5, 6]
 
-Note: index is not given to you as a parameter.
+Reorder the nodes of the linked list to be in the following order:
+
+[0, 6, 1, 5, 2, 4, 3]
+
+Notice that in the general case for a list of length = n the nodes are reordered to be in the following order:
+
+[0, n-1, 1, n-2, 2, n-3, ...]
+
+You may not modify the values in the list's nodes, but instead you must reorder the nodes themselves.
 
 Example 1:
 
+Input: head = [2,4,6,8]
 
-
-Input: head = [1,2,3,4], index = 1
-
-Output: true
-Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
-
+Output: [2,8,4,6]
 Example 2:
 
+Input: head = [2,4,6,8,10]
 
-
-Input: head = [1,2], index = -1
-
-Output: false
+Output: [2,10,4,8,6]
 Constraints:
 
 1 <= Length of the list <= 1000.
--1000 <= Node.val <= 1000
-index is -1 or a valid index in the linked list.
+1 <= Node.val <= 1000
