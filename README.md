@@ -1,31 +1,29 @@
-Find Minimum in Rotated Sorted Array
+Merge Two Sorted Linked Lists
 Solved 
-You are given an array of length n which was originally sorted in ascending order. It has now been rotated between 1 and n times. For example, the array nums = [1,2,3,4,5,6] might become:
+You are given the heads of two sorted linked lists list1 and list2.
 
-[3,4,5,6,1,2] if it was rotated 4 times.
-[1,2,3,4,5,6] if it was rotated 6 times.
-Notice that rotating the array 4 times moves the last four elements of the array to the beginning. Rotating the array 6 times produces the original array.
+Merge the two lists into one sorted linked list and return the head of the new sorted linked list.
 
-Assuming all elements in the rotated sorted array nums are unique, return the minimum element of this array.
-
-A solution that runs in O(n) time is trivial, can you write an algorithm that runs in O(log n) time?
+The new list should be made up of nodes from list1 and list2.
 
 Example 1:
 
-Input: nums = [3,4,5,6,1,2]
 
-Output: 1
+
+Input: list1 = [1,2,4], list2 = [1,3,5]
+
+Output: [1,1,2,3,4,5]
 Example 2:
 
-Input: nums = [4,5,0,1,2,3]
+Input: list1 = [], list2 = [1,2]
 
-Output: 0
+Output: [1,2]
 Example 3:
 
-Input: nums = [4,5,6,7]
+Input: list1 = [], list2 = []
 
-Output: 4
+Output: []
 Constraints:
 
-1 <= nums.length <= 1000
--1000 <= nums[i] <= 1000
+0 <= The length of the each list <= 100.
+-100 <= Node.val <= 100

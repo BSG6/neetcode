@@ -1,27 +1,42 @@
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     constructor(val = 0, next = null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+
 class Solution {
     /**
-     * @param {number[]} nums
-     * @return {number}
+    
+     *
+     * @param {ListNode|null} list1
+     * @param {ListNode|null} list2
+     * @return {ListNode|null}
      */
-    findMin(nums) {
-        let l = 0;
-        let r = nums.length - 1;
-        let res = nums[0];
+    mergeTwoLists(list1, list2) {
+        // silly/sentinel node to simplify head handling
+        const silly = new ListNode();
+        let tail = silly;
 
-        while (l <= r) {
-            if (nums[l] <= nums[r]) {
-                res = Math.min(res, nums[l]);
-                break;
-            }
-
-            let m = l + Math.floor((r - l) / 2);
-            res = Math.min(res, nums[m]);
-            if (nums[m] >= nums[l]) {
-                l = m + 1;
+        // While both lists still have nodes, pick the smaller head to append
+        while (list1 !== null && list2 !== null) {
+            if (list1.val <= list2.val) {
+                tail.next = list1;     // attach list1's node
+                list1 = list1.next;    // advance list1
             } else {
-                r = m - 1;
+                tail.next = list2;     // attach list2's node
+                list2 = list2.next;    // advance list2
             }
+            tail = tail.next;          // advance the merged tail
         }
-        return res;
+
+        // One of the lists may have leftover nodes; append them directly
+        tail.next = (list1 !== null) ? list1 : list2;
+
+        // The merged list starts after the dummy
+        return silly.next;
     }
 }
