@@ -1,27 +1,17 @@
-Remove Node From End of Linked List
+Search a 2D Matrix
 Solved 
-You are given the beginning of a linked list head, and an integer n.
+You are given an m x n 2-D integer array matrix and an integer target.
 
-Remove the nth node from the end of the list and return the beginning of the list.
+Each row in matrix is sorted in non-decreasing order.
+The first integer of every row is greater than the last integer of the previous row.
+Return true if target exists within matrix or false otherwise.
+
+Can you write a solution that runs in O(log(m * n)) time?
 
 Example 1:
 
-Input: head = [1,2,3,4], n = 2
 
-Output: [1,2,4]
-Example 2:
 
-Input: head = [5], n = 1
+Input: matrix = [[1,2,4,8],[10,11,12,13],[14,20,30,40]], target = 10
 
-Output: []
-Example 3:
-
-Input: head = [1,2], n = 2
-
-Output: [2]
-Constraints:
-
-The number of nodes in the list is sz.
-1 <= sz <= 30
-0 <= Node.val <= 100
-1 <= n <= sz
+Output: true
